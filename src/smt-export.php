@@ -39,6 +39,7 @@ function smt_download_export_file($smt) {
 		$item['Author']              = get_the_author_meta('display_name') . ' <' . get_the_author_meta('user_email') . '>';
 		$item['Total Social Count']  = (get_post_meta($post->ID, "socialcount_TOTAL", true)) ? get_post_meta($post->ID, "socialcount_TOTAL", true) : 0;
 		$item['Total Comment Count'] = $post->comment_count;
+		$item['Word Count']          = str_word_count( $post->post_content );
 		
 		if ($gapi_can_sync) $item['Total Page Views'] = get_post_meta($post->ID, "ga_pageviews", true);
 
